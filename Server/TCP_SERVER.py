@@ -14,12 +14,13 @@ while (True):
         try:
             dataFromClient = clientConnected.recv(1024)
             msg = dataFromClient.decode()
-            print(msg)
+            
             if msg.rsplit('(', 1)[0] == "move":
                 pydirectinput.moveTo(int(msg[5:].rsplit(',', 1)[0]), int(
                     msg[5:-1].rsplit(',', 1)[1]))
             elif msg == "left":
                 pydirectinput.press("left")
+                print(msg)
             elif msg == "right":
                 pydirectinput.press("right")
             elif msg == "up":
