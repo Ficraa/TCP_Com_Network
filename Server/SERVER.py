@@ -6,7 +6,7 @@ import time
 import threading
 lock = threading.Lock()
 
-def get_IP():
+def send_IP():
     ip = socket.gethostbyname(socket.gethostname()).rsplit('.', 1)[0]+(".255")
     msg = b'response'
 
@@ -54,7 +54,7 @@ def get_CMD():
                 break
 
 
-thread1 = threading.Thread(target=get_IP, args=())
+thread1 = threading.Thread(target=send_IP, args=())
 thread2 = threading.Thread(target=get_CMD, args=())
 # Starting the threads
 thread1.start()
